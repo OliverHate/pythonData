@@ -52,9 +52,25 @@ class DouBanBookList():
             self.saveTxt(book_url)
         pass
 
+class douBanBook():
+    def __init__(self):
+        self.url = 'https://market.douban.com/book/special/dushuzhou/'
+
+    def getSourceCode(self,url):
+        req = urllib2.Request(url=url)
+        res = urllib2.urlopen(req)
+        source_code = res.read()
+        tag = '<a class="hover" id="readbook_tab">书单</a>'
+        start = source_code.find(tag)
+        source_code = source_code[start:]
+        return source_code
+
+
+
 def main():
     douban = DouBanBookList()
     douban.main()
 
 if __name__ == '__main__':
-    main()
+    # main()
+    pass
