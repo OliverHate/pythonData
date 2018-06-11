@@ -39,7 +39,7 @@ class DouBanBookList():
     def saveTxt(self,book_url):
         with open(r'..\data\bookUrl.txt','a') as f:
             for i in book_url:
-                f.write("{}:{}\n".format(i[0],i[1]))
+                f.write("{};{}\n".format(i[0],i[1]))
             print 'over'
 
     def saveSql(self):
@@ -55,22 +55,31 @@ class DouBanBookList():
 class douBanBook():
     def __init__(self):
         self.url = 'https://market.douban.com/book/special/dushuzhou/'
+        reg = '"is_debut":false,"title":"(.*?)",.*?","subject_id":"(.*?)",'
+        self.reg = re.compile(reg)
 
     def getSourceCode(self,url):
-        req = urllib2.Request(url=url)
+        req = urllib2.Request(url=self.url)
         res = urllib2.urlopen(req)
         source_code = res.read()
-        tag = '<a class="hover" id="readbook_tab">书单</a>'
+        tag = "'is_mobile': false,"
         start = source_code.find(tag)
         source_code = source_code[start:]
         return source_code
 
+    def getList(self,source_code):
+        bookList = self.reg.findall(source_code)
+        for num in xrange(len(bookList)):
+            bookList[num] = list(bookList[num])
+            bookList[num].append("https://book.douban.com/subject/{}/".format(bookList[num][1]))
+        return bookList
 
 
 def main():
     douban = DouBanBookList()
     douban.main()
-
+    # book = douBanBook()
+    # source_code=book.getSourceCode(1)
+    # book.getList(source_code)
 if __name__ == '__main__':
-    # main()
-    pass
+    main()
