@@ -12,7 +12,7 @@ import pymysql as pdb
 
 class DouBanBookList():
     def __init__(self):
-        self.url = "https://market.douban.com/book/?type=topic&page={}"
+        self.url_template = "https://market.douban.com/book/?type=topic&page={}"
         reg = '<a href="(.*?)" target="_blank".*?class="special-item">.*?<h3>(.*?)</h3>'
         self.reg = re.compile(reg, re.S)
 
@@ -25,8 +25,8 @@ class DouBanBookList():
         source_code = source_code[start:]
         return source_code
 
-    def getBookListUrl(self):
-        source_code = self.getSourceCode('https://market.douban.com/book/?type=topic&page=1')
+    def getBookListUrl(self,source_code):
+        # source_code = self.getSourceCode('https://market.douban.com/book/?type=topic&page=1')
         tag = '<a class="hover" id="readbook_tab">书单</a>'
         start = source_code.find(tag)
         source_code = source_code[start:]
@@ -44,12 +44,17 @@ class DouBanBookList():
 
     def saveSql(self):
         pass
+    def main(self):
+        for num in [1,2,3]:
+            self.url = self.url_template.format(num)
+            source_code = self.getSourceCode(self.url)
+            book_url =self.getBookListUrl(source_code)
+            self.saveTxt(book_url)
+        pass
 
 def main():
     douban = DouBanBookList()
-    book_url = douban.getBookListUrl()
-    douban.saveTxt(book_url)
-
+    douban.main()
 
 if __name__ == '__main__':
     main()
