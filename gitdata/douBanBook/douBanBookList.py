@@ -34,16 +34,21 @@ class DouBanBookList():
         for i in xrange(len(book_url)):
             book_url[i] = list(book_url[i])
             book_url[i][0] = "https://market.douban.com{}".format(book_url[i][0])
+        return book_url
 
     def saveTxt(self,book_url):
-        # with open(''
+        with open(r'..\data\bookUrl.txt','a') as f:
+            for i in book_url:
+                f.write("{}:{}\n".format(i[0],i[1]))
+            print 'over'
+
+    def saveSql(self):
         pass
-
-
 
 def main():
     douban = DouBanBookList()
-    douban.getBookListUrl()
+    book_url = douban.getBookListUrl()
+    douban.saveTxt(book_url)
 
 
 if __name__ == '__main__':
