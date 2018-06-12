@@ -1,11 +1,10 @@
 # -*- coding:utf-8 -*-
 """
-@Time       :2018/6/11 10:37
+@Time       :2018/6/12 10:58
 @Author     :邹文涛
-@File       :douBanBookList.py
+@File       :doubanBookList.py
 @Software: PyCharm
 """
-
 import urllib2
 import re
 import pymysql as pdb
