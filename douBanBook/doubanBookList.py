@@ -12,7 +12,6 @@ import urllib2
 import re
 import pymysql as pdb
 
-
 class DouBanBookList():
     #
     def __init__(self):

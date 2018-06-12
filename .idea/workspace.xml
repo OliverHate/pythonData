@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c65e0018-701b-40ec-8285-5eecf77a0c35" name="Default" comment="数据存放目录">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/douBanBook/doubanBookList.py" beforeDir="false" afterPath="$PROJECT_DIR$/douBanBook/doubanBookList.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,10 +60,11 @@
       <file leaf-file-name="doubanBookList.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/douBanBook/doubanBookList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="234">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
-                <element signature="e#255#269#0" expanded="true" />
+                <element signature="e#143#158#0" expanded="true" />
+                <element signature="n#IF#0" />
               </folding>
             </state>
           </provider>
@@ -100,8 +101,8 @@
         <option value="$PROJECT_DIR$/douBanBook/douBanBookList.py" />
         <option value="$PROJECT_DIR$/douBanBook/111.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/douBanBook/doubanBookList.py" />
         <option value="$PROJECT_DIR$/data/bookUrl.txt" />
+        <option value="$PROJECT_DIR$/douBanBook/doubanBookList.py" />
       </list>
     </option>
   </component>
@@ -290,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528772669087</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="豆瓣书单爬虫">
+      <created>1528803384247</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1528803384247</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -298,13 +306,13 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.32914925" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.04055944" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989605" visible="true" weight="0.16353887" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989605" visible="true" weight="0.16353887" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20040214" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32914925" />
@@ -330,13 +338,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pythonData" />
-    <MESSAGE value="豆瓣爬虫" />
     <MESSAGE value="豆瓣书单爬虫功能完善版" />
     <MESSAGE value="demo" />
     <MESSAGE value="豆瓣书单" />
-    <MESSAGE value="豆瓣书单爬虫" />
     <MESSAGE value="数据存放目录" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据存放目录" />
+    <MESSAGE value="豆瓣爬虫" />
+    <MESSAGE value="豆瓣书单爬虫" />
+    <option name="LAST_COMMIT_MESSAGE" value="豆瓣书单爬虫" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -608,10 +616,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/douBanBook/doubanBookList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="234">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
-            <element signature="e#255#269#0" expanded="true" />
+            <element signature="e#143#158#0" expanded="true" />
+            <element signature="n#IF#0" />
           </folding>
         </state>
       </provider>
