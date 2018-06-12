@@ -13,7 +13,6 @@ import re
 import pymysql as pdb
 
 class DouBanBookList():
-    #
     def __init__(self):
         self.url_template = "https://market.douban.com/book/?type=topic&page={}"
         reg = '<a href="(.*?)".*?<h3>(.*?)</h3>'
@@ -51,7 +50,6 @@ class DouBanBookList():
             source_code = self.getSourceCode(self.url)
             book_url = self.getBookListUrl(source_code)
             self.saveTxt(book_url)
-
 
 #doubanBook
 class douBanBook():
