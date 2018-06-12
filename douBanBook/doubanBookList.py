@@ -129,11 +129,9 @@ def BookListMain():
     douban = DouBanBookList()
     douban.main()
 
-
 def BookMain():
     book = douBanBook()
     book.main()
-
 
 if __name__ == '__main__':
     BookListMain()
