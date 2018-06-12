@@ -12,7 +12,7 @@ https://market.douban.com/book/special/design;什么才是好设计？这里有7
 https://market.douban.com/book/special/popular;从东方快车到银翼杀手，盘点近期受关注的10本书
 https://market.douban.com/book/special/home;把家慢慢打磨成喜欢的样子，7本家居书里的生活美学
 https://market.douban.com/book/special/fitness;身体管理进阶指南，这里有6本健身经典书籍
-https://market.douban.com/book/special/nature;欣赏自然之美1，这里有7本美好的博物书
+https://market.douban.com/book/special/nature;欣赏自然之美，这里有7本美好的博物书
 https://market.douban.com/book/special/best;万人标记8分以上，盘点豆友心中的10部文学经典
 https://market.douban.com/book/special/living;专业人士实力种草，这7本书为你推荐生活良品
 https://market.douban.com/book/special/wealth;思维即财富，7本书教你如何培养理财观念
