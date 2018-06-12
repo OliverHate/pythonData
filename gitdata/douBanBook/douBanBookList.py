@@ -57,9 +57,20 @@ class douBanBook():
         self.url = 'https://market.douban.com/book/special/dushuzhou/'
         reg = '"is_debut":false,"title":"(.*?)",.*?","subject_id":"(.*?)",'
         self.reg = re.compile(reg)
+        self.pdb = pdb.connect(host='localhost',user='root',passwd='123456',db='douban',charset='utf8')
+        self.cur = self.pdb.cursor()
+        self.insert_sql = 'insert into douban.douban_catalog(name,num,url) values ("%s","%s","%s")'
+        create_table_sql = """
+        CREATE TABLE IF NOT EXISTS douban_catalog(
+        id int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        name varchar(80),
+        num VARCHAR(30),
+        url VARCHAR(100))
+        """
+        self.cur.execute(create_table_sql)
 
     def getSourceCode(self,url):
-        req = urllib2.Request(url=self.url)
+        req = urllib2.Request(url=url)
         res = urllib2.urlopen(req)
         source_code = res.read()
         tag = "'is_mobile': false,"
@@ -74,12 +85,37 @@ class douBanBook():
             bookList[num].append("https://book.douban.com/subject/{}/".format(bookList[num][1]))
         return bookList
 
+    def getBookUrlList(self):
+        with open('../data/bookUrl.txt', 'r') as f:
+            book_url_list = f.read()
+            book_url_list = book_url_list.split('\n')
+            book_url_list = book_url_list[:-1]
+        for num in range(len(book_url_list)):
+            book_url_list[num] = book_url_list[num].split(';')[0]
+        return book_url_list
+    def saveSql(self,book_list):
+        print '保存程序执行'
+        # print(book_list)
+        for i in book_list:
+            insert_sql = self.insert_sql % (i[0],i[1],i[2])
+            print insert_sql
+            suc = self.cur.execute(insert_sql)
+            print suc
 
-def main():
+def BookListMain():
     douban = DouBanBookList()
     douban.main()
-    # book = douBanBook()
-    # source_code=book.getSourceCode(1)
-    # book.getList(source_code)
+
+def BookMain():
+    book = douBanBook()
+    book_url_list = book.getBookUrlList()
+    for url in book_url_list:
+        source_code = book.getSourceCode(url)
+        book_list = book.getList(source_code)
+        book.saveSql(book_list)
+    book.pdb.commit()
+    book.cur.close()
+    book.pdb.close()
+
 if __name__ == '__main__':
-    main()
+    BookMain()
