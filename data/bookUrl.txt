@@ -8,7 +8,7 @@ https://market.douban.com/book/special/art;#阅无止境，一鹿相伴第二季
 https://market.douban.com/book/special/tradition;#阅无止境，一鹿相伴#主题书单，5本好书遇见传统文化的美好
 https://market.douban.com/book/special/history;我们生活的世界是怎么来的？这里有6本精彩好读的历史书
 https://market.douban.com/book/special/bookstore;这7本和书店有关的书，陪你一起去看书店风景
-https://market.douban.com/book/special/design;什么才是好设计？这里有7本写给大家看的设计书1
+https://market.douban.com/book/special/design;什么才是好设计？这里有7本写给大家看的设计书
 https://market.douban.com/book/special/popular;从东方快车到银翼杀手，盘点近期受关注的10本书
 https://market.douban.com/book/special/home;把家慢慢打磨成喜欢的样子，7本家居书里的生活美学
 https://market.douban.com/book/special/fitness;身体管理进阶指南，这里有6本健身经典书籍
