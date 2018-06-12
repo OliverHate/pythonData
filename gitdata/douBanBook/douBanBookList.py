@@ -13,7 +13,7 @@ import pymysql as pdb
 class DouBanBookList():
     def __init__(self):
         self.url_template = "https://market.douban.com/book/?type=topic&page={}"
-        reg = '<a href="(.*?)" target="_blank".*?class="special-item">.*?<h3>(.*?)</h3>'
+        reg = '<a href="(.*?)".*?<h3>(.*?)</h3>'
         self.reg = re.compile(reg, re.S)
 
     def getSourceCode(self,url):
@@ -26,10 +26,6 @@ class DouBanBookList():
         return source_code
 
     def getBookListUrl(self,source_code):
-        # source_code = self.getSourceCode('https://market.douban.com/book/?type=topic&page=1')
-        tag = '<a class="hover" id="readbook_tab">书单</a>'
-        start = source_code.find(tag)
-        source_code = source_code[start:]
         book_url = self.reg.findall(source_code)
         for i in xrange(len(book_url)):
             book_url[i] = list(book_url[i])
@@ -40,17 +36,14 @@ class DouBanBookList():
         with open(r'..\data\bookUrl.txt','a') as f:
             for i in book_url:
                 f.write("{};{}\n".format(i[0],i[1]))
-            print 'over'
+            print '第一页书单写入完毕'
 
-    def saveSql(self):
-        pass
     def main(self):
         for num in [1,2,3]:
             self.url = self.url_template.format(num)
             source_code = self.getSourceCode(self.url)
             book_url =self.getBookListUrl(source_code)
             self.saveTxt(book_url)
-        pass
 
 class douBanBook():
     def __init__(self):
@@ -94,13 +87,21 @@ class douBanBook():
             book_url_list[num] = book_url_list[num].split(';')[0]
         return book_url_list
     def saveSql(self,book_list):
-        print '保存程序执行'
-        # print(book_list)
         for i in book_list:
             insert_sql = self.insert_sql % (i[0],i[1],i[2])
             print insert_sql
             suc = self.cur.execute(insert_sql)
             print suc
+
+    def main(self):
+        book_url_list = self.getBookUrlList()
+        for url in book_url_list:
+            source_code = self.getSourceCode(url)
+            book_list = self.getList(source_code)
+            self.saveSql(book_list)
+        self.pdb.commit()
+        self.cur.close()
+        self.pdb.close()
 
 def BookListMain():
     douban = DouBanBookList()
@@ -108,14 +109,9 @@ def BookListMain():
 
 def BookMain():
     book = douBanBook()
-    book_url_list = book.getBookUrlList()
-    for url in book_url_list:
-        source_code = book.getSourceCode(url)
-        book_list = book.getList(source_code)
-        book.saveSql(book_list)
-    book.pdb.commit()
-    book.cur.close()
-    book.pdb.close()
+    book.main()
+
 
 if __name__ == '__main__':
+    BookListMain()
     BookMain()
